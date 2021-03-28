@@ -1,3 +1,7 @@
+/*Program kalkulator modul 2 Uro
+Nama : Ar Ryan Shifa Izzati
+NIM : 13219026
+Hari dan tanggal : Minggu, 28 Maret 2020*/
 #include<stdio.h>
 #include<math.h>
 float b , operator, hasil;
@@ -8,15 +12,15 @@ float bawah,atas,lebar,luas;
 
 float riemankanan(float bawah, float lebar, float atas, float rumus,float pembilang, float penyebut, float x,float sisi1,float sisi2);
 float riemankanan(float bawah, float lebar, float atas,float rumus, float pembilang, float penyebut, float x,float sisi1,float sisi2){
-    x = bawah + lebar;
+    x = bawah + lebar; 
     if(x > atas){
         pembilang = (10 * bawah * bawah) - (7 * bawah * sin(bawah));
         penyebut = (bawah*bawah) + bawah + 1 ;
-        sisi1 = pembilang/penyebut;
+        sisi1 = pembilang/penyebut; //Nilai bawah fungsi
         pembilang = (10 * atas * atas) - (7 * atas * sin(atas));
         penyebut = (atas*atas) + atas + 1 ;
-        sisi2 = pembilang/penyebut;
-        rumus = ((sisi1 + sisi2) * (atas - bawah))/2;
+        sisi2 = pembilang/penyebut; // Nilai atas fungsi
+        rumus = ((sisi1 + sisi2) * (atas - bawah))/2;//kalau nilai delta nya udah lebih dari atas, berarti tinggi trapesiumnya atas - bawah
         return(rumus);
     }else{
         pembilang = (10 * bawah * bawah) - (7 * bawah * sin(bawah));
@@ -26,7 +30,7 @@ float riemankanan(float bawah, float lebar, float atas,float rumus, float pembil
         penyebut = (x*x) + x + 1 ;
         sisi2 = pembilang/penyebut;
         rumus = ((sisi1 + sisi2) * lebar)/2;
-        return(rumus + riemankanan(x,lebar,atas,0,0,0,0,0,0));
+        return(rumus + riemankanan(x,lebar,atas,0,0,0,0,0,0)); //nilai bawah selalu berubah sebagai perhitungan maju
     }
 }
 
@@ -61,8 +65,8 @@ float pangkat(float a, float b){
 }
 int main()
 {   
-    c = 'Y';
-    hasil = 0;
+    c = 'Y'; //Faktor untuk keluar dari perulangan
+    hasil = 0; // Nilai agar tetap berlanjut untuk setiap saat
     printf("Apakah ingin menggunakan kalkulator? (Y/N) \n");
     scanf("%c", &c);
     while (c == 'Y')
@@ -74,7 +78,7 @@ int main()
       printf("4. Pembagian\n");
       printf("5. Pangkat\n");
       printf("6. Integral dari fungsi ((10 * x * x) - (7 * x * sin(x))) : (x*x + x + 1) \n");
-      scanf("%f", &operator );
+      scanf("%f", &operator ); //Menentukan jenis operator yang dipilih, proses kalkulasi yaitu hasil akhir <operator> b
       if (operator == 1)
       {
         printf("Masukkan nilai penjumlahan (b) \n");
@@ -123,7 +127,7 @@ int main()
 
       printf("Apakah ingin melanjutkan?\nMasukkan angka untuk :\n");
       printf("1. Y  2. N \n");
-      scanf("%d", &d);
+      scanf("%d", &d); //Sebagai faktor keluar dari loop dengan merubah nilai c
       if (d == 1)
       {
        c = 'Y';   
